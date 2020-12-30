@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react'
-import { Text } from 'react-native';
+import { Button, View, Text } from 'react-native';
 
 
 const initialState = 0;
@@ -18,15 +18,13 @@ const Fav_Games = () => {
   const [count, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div>
-      {count} <Text>darab kedvenc játékod van</Text>
-      <br></br>
-      
-      <button onClick={() => dispatch('increment')}>1 játék hozzáadása</button>
-      <button onClick={() => dispatch('decrement')}>1 játék elvétele</button>
-      <button onClick={() => dispatch('reset')}>Nincs kedvenc játékom :(</button>
-    </div>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>{count} db kedvenc játékom van</Text>
+      <Button title="Kedvenc játékok számának növelése" onPress={() => dispatch('increment')}/>
+      <Button title="Kedvenc játékok számának csökkentése" onPress={() => dispatch('decrement')}/>
+      <Button title="Nincs kedvenc játékom :(" onPress={() => dispatch('reset')}/>
+    </View>
   );
-};
+}
 
 export default Fav_Games;

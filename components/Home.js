@@ -1,15 +1,24 @@
-import React from 'react'
-import { TouchableOpacity, Text } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-function Home() {
-   const goToDeals = () => {
-      Actions.deals()
-   }
-   return (
-      <TouchableOpacity style = {{ margin: 20 }} onPress = {goToDeals}>
-         <Text>Ez a weboldal a Web-es rendszerek programozása 1 nevű órára készült Kiss Gergő által, beadandó gyanánt. Kattints erre a szövegre ha tovább akarsz lépni!</Text>
-      </TouchableOpacity>
-   )
-}
+
+
+function Home({ navigation }) {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Ezt az alkalmazást Kiss Gergő készítette Mobilprog 1 beadandóként.</Text>
+          <Button
+            title="Aktuális leárazás"
+            onPress={() => navigation.navigate('Deals')}
+          />
+          <Button
+            title="Kedvenc játék számláló"
+            onPress={() => navigation.navigate('FavGames')}
+          />
+        </View>
+      );
+    }
+
 export default Home

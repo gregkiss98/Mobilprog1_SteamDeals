@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity, Text } from 'react-native'
-import { Actions } from 'react-native-router-flux'
 import { getList } from '../services/list';
+import { Button, View, Text } from 'react-native';
 
 function Deals() {
+
   const [list, setList] = useState([]);
   useEffect(() => {
     let mounted = true;
@@ -16,17 +16,18 @@ function Deals() {
     return () => mounted = false;
   }, [])
 
+  return(
+   /*<div class="deals">
+    <ul>
+      {list.map(title => <li style={{ backgroundColor: theme.backgroundColor,
+    color: theme.color }}  key={title.storeid}><img src={title.thumb}></img> Game name: {title.title} | Sale Price: {title.salePrice} | Normal Price: {title.normalPrice}</li>)}
+    </ul>
 
-const goToFavGames = () => {
-   Actions.favgames()
+  </div>*/
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        {list.map(title => <li key={title.item}>{title.item}</li>)}
+    </View>
+ )
 }
-
-return (
-   <TouchableOpacity style = {{ margin: 128 }} onPress = {goToFavGames}>
-      <Text>Ezek itt a leárazott játékok, a következő oldalon a kedvenc játékaid számát adhatod meg</Text>
-   </TouchableOpacity>
-)
-
-}
-
-export default Deals
+ 
+export default Deals;
