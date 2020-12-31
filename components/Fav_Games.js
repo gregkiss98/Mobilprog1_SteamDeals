@@ -1,5 +1,6 @@
-import React, {useReducer} from 'react'
+import React, {useReducer} from 'react';
 import { Button, View, Text } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const initialState = 0;
@@ -13,6 +14,14 @@ const reducer = (state, action) => {
     default: throw new Error('Unexpected action');
   }
 };
+
+const storeData = async (value) => {
+  try {
+    await AsyncStorage.setItem(state, value)
+  } catch (e) {
+    // saving error
+  }
+}
 
 const Fav_Games = () => {
   const [count, dispatch] = useReducer(reducer, initialState);
