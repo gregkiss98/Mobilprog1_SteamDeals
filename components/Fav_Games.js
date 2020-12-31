@@ -17,13 +17,6 @@ const reducer = (state, action) => {
   }
 };
 
-const storeData = async (value) => {
-  try {
-    await AsyncStorage.setItem(state, value)
-  } catch (e) {
-    // saving error
-  }
-}
 
 const Fav_Games = () => {
   const [count, dispatch] = useReducer(reducer, initialState);
