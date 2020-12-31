@@ -35,6 +35,10 @@ function Deals() {
     <ScrollView style={{ flex: 1 }}>
       <HTML source={{ html: htmlContent }} contentWidth={contentWidth} />
     </ScrollView>
+    /*<View>
+      {list.map(title => <li key={title.storeid}><img src={title.thumb}></img> <Text> Game name: </Text>{title.title} <Text>| Sale Price: </Text>{title.salePrice} 
+      <Text>| Normal Price: </Text>{title.normalPrice}</li>)}
+    </View>*/
 
   );
 }
